@@ -10,7 +10,7 @@ const MainNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name='AdminNavigator' component={AdminNavigator} />
+                <Stack.Screen name='AdminNavigator' component={AdminNavigator} options={{ headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
