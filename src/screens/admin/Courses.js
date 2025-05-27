@@ -64,6 +64,16 @@ const Courses = () => {
             }}>
                 <Text style={styles.btnText}>+ Add Course</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={[styles.addCourseBtn, {bottom: moderateScale(110)}]} onPress={() => {
+                navigation.navigate('AddSubject', { type: 'New'})
+            }}>
+                <Text style={styles.btnText}>+ Add AddSubject</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.addCourseBtn, {bottom: moderateScale(170)}]} onPress={() => {
+                navigation.navigate('Subjects', { type: 'New'})
+            }}>
+                <Text style={styles.btnText}>+ View Subjects</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -100,7 +110,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: horizontalScale(20),
         marginTop: verticalScale(20),
         borderRadius: moderateScale(10),
-        borderColor: "#f2f2f2"
+        backgroundColor: "#f2f2f2"
     },
     courseName: {
         fontSize: moderateScale(30),
