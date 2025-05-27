@@ -28,7 +28,7 @@ export const intiDB = () =>{
             CREATE TABLE IF NOT EXISTS courses (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
-                fees INTEGER,
+                fees INTEGER
             );
         `);
         tx.executeSql(`
@@ -36,7 +36,7 @@ export const intiDB = () =>{
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
                 course_id INTEGER,
-                FOREIGN KEY(course_id) REFERENCES courses(id),
+                FOREIGN KEY(course_id) REFERENCES courses(id)
             );
         `)
     })
@@ -47,7 +47,7 @@ export const intiDB = () =>{
 export const insertCourse = (name, fees, success, error) => {
     db.transaction((tx) => {
         // tow avoid duplicate enteries
-        tx.executeSql('SELECT * FROM course WHERE name=?',
+        tx.executeSql('SELECT * FROM courses WHERE name=?',
             [name],
             (_, {rows}) =>{
                 if(rows?.length > 0){
@@ -89,7 +89,7 @@ export const getCourses = (callback) =>{
         tx.executeSql('SELECT * FROM courses', [], (_,{rows}) => {
             const result = [];
             for(let i=0; i < rows?.length; i++){
-                result.push(rows.item[i]);
+                result.push(rows.item(i));
             }
             callback(result);
         })

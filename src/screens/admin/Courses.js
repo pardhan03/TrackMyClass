@@ -32,20 +32,22 @@ const Courses = () => {
         handleGetCourseList()
     }, [isFocused])
 
-    const renderItems = ({item, index}) =>{
-        <View style={styles.courseItem}>
+    console.log(courses)
+
+    const renderItems = ({ item, index }) => {
+        return <View style={styles.courseItem}>
             <View>
                 <Text style={styles.courseName}>{item?.name}</Text>
                 <Text style={styles.courseFees}>{item?.fees}</Text>
             </View>
             <View style={styles.iconContainer}>
-                <TouchableOpacity onPress={()=>{handleDeleteCourse(item?.id)}}>
-                    <Image source={require('../../assets/images/delete.png')} style={styles.icon}/>
+                <TouchableOpacity onPress={() => { handleDeleteCourse(item?.id) }}>
+                    <Image source={require('../../assets/images/delete.png')} style={styles.icon} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate('AddCourse', { type: 'Edit', data: item})
+                    navigation.navigate('AddCourse', { type: 'Edit', data: item })
                 }}>
-                    <Image source={require('../../assets/images/edit.png')} style={styles.icon}/>
+                    <Image source={require('../../assets/images/edit.png')} style={styles.icon} />
                 </TouchableOpacity>
             </View>
         </View>

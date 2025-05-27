@@ -13,7 +13,7 @@ const AddCourse = () => {
         route?.params?.type == 'Edit' ? route?.params?.data?.name : ''
     )
     const [fees, setFees] = useState(
-        route?.params?.type == 'Edit' ? route?.params?.data?.fees : ''
+        route?.params?.type == 'Edit' ? String(route?.params?.data?.fees) : ''
     )
     const [message, setMessage] = useState({})
 
@@ -61,13 +61,13 @@ const AddCourse = () => {
   return (
     <View style={styles.container}>
       <TextInput 
-        placeholder='Enter your name' 
+        placeholder='Enter Course name' 
         value={name}
         style={styles.input}
         onChangeText={handleOnChangeName}
       />
       <TextInput 
-        placeholder='Enter your fees' 
+        placeholder='Enter Course fees' 
         value={fees}
         style={styles.input}
         onChangeText={handleOnChangeFees}
