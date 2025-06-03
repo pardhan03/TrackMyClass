@@ -12,14 +12,11 @@ const CheckAttendance = () => {
     const date = new Date();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-    console.log(month);
-    console.log(year);
     getAttendanceByMonth(
       route.params.data.id,
       month,
       year,
       res => {
-        console.log('data', res);
         setAttendances(res);
       },
       err => {

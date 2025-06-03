@@ -30,7 +30,6 @@ const AddCourse = () => {
             name, parseInt(fees),
             res =>{
                 setMessage({type: 'success', msg: 'Course added successfully'})
-                console.log(res)
             },
             err =>{
                 setMessage({type: 'error', msg: err})

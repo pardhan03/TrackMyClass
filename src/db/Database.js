@@ -198,7 +198,6 @@ export const getSubjects = (success, error) => {
       'SELECT subjects.id, subjects.name AS subject_name, courses.name AS course_name FROM subjects INNER JOIN courses ON subjects.course_id = courses.id',
       [],
       (_, {rows}) => {
-        console.log('rows', rows.item);
         const items = [];
         for (let i = 0; i < rows.length; i++) {
           items.push(rows.item(i));
@@ -305,14 +304,12 @@ export const getAttendanceByMonth = (
   callback,
   error,
 ) => {
-  console.log('studentId', studentId);
   const mMonth = month.toString().padStart(2, '0');
   db.transaction(tx => {
     tx.executeSql(
       `SELECT * FROM attendance WHERE student_id=? AND strftime('%m',date)=? AND strftime('%Y',date)=? ORDER BY date ASC`,
       [studentId, mMonth, year.toString()],
       (_, {rows}) => {
-        console.log(rows);
         const data = [];
         for (let i = 0; i < rows.length; i++) {
           data.push(rows.item(i));

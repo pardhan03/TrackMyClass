@@ -32,8 +32,6 @@ const Courses = () => {
         handleGetCourseList()
     }, [isFocused])
 
-    console.log(courses)
-
     const renderItems = ({ item, index }) => {
         return <View style={styles.courseItem}>
             <View>

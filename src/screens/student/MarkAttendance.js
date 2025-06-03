@@ -15,7 +15,6 @@ const MarkAttendance = () => {
   useEffect(() => {
     const date = new Date('2025-05-10');
     const mDate = date.toISOString().split('T')[0];
-    console.log('mDate', mDate);
     setAttendanceTime(mDate);
     const day = date.getDay();
     setIsSunday(day == 0);

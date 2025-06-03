@@ -55,7 +55,6 @@ const MyFees = () => {
     getPaymentHistory(
       route.params.data?.id,
       (res) =>{
-        console.log(res)
         setPaymentHistory(res)
       },
       (err)=>{
@@ -79,7 +78,7 @@ const MyFees = () => {
 
   const historyListHeaderComponent = () =>{
     return(
-      <View style={styles.paymentItem}>
+      <View style={[styles.paymentItem, {marginTop: verticalScale(20)}]}>
         <View style={styles.column}>
           <Text>{'Date'}</Text>
         </View>

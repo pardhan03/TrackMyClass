@@ -10,7 +10,6 @@ import { intiDB } from './src/db/Database';
 function App(){
 
   useEffect(() => {
-    console.log('called ')
     intiDB();
   }, [])
 

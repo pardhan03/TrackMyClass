@@ -25,7 +25,6 @@ const Register = ({navigation}) => {
 
   const getCourseList = () => {
     getCourses(result => {
-      console.log('response', result);
       const list = [];
       for (let i = 0; i < result.length; i++) {
         list.push({label: result[i].name, value: result[i].id});
@@ -40,7 +39,6 @@ const Register = ({navigation}) => {
       Alert.alert('Please fill all fields');
       return;
     }
-    console.log('selectedCourse', selectedCourse);
     insertStudent(
       name,
       email,

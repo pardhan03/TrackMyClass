@@ -19,7 +19,6 @@ const Subjects = () => {
   }, [isFocused]);
   const getCourseList = () => {
     getCourses(result => {
-      console.log('response', result);
       const list = [];
       for (let i = 0; i < result.length; i++) {
         list.push({ label: result[i].name, value: result[i].id });
@@ -35,7 +34,6 @@ const Subjects = () => {
     try {
       getSubjects(
         res => {
-          console.log('subjects', res);
           setSubjects(res);
         },
         err => {

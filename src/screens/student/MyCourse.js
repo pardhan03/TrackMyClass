@@ -13,7 +13,6 @@ const MyCourse = () => {
     getCoursDetail(
       route.params.data?.course_id,
       res =>{
-        console.log(res)
         setDetail(res)
       },
       err=>{
@@ -24,7 +23,6 @@ const MyCourse = () => {
     getStudentSubjects(
       route.params.data?.course_id,
       res =>{
-        console.log(res)
         setSubjects(res)
       },
       err=>{
