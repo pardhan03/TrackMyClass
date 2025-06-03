@@ -4,6 +4,8 @@ import CheckAttendance from '../screens/student/CheckAttendance';
 import Dashboard from '../screens/student/DashBoard';
 import Login from '../screens/student/Login';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MyCourse from '../screens/student/MyCourse';
+import MyFees from '../screens/student/MyFees';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,8 @@ const StudentNavigator = () => {
       />
       <Stack.Screen name="MarkAttendance" component={MarkAttendance} />
       <Stack.Screen name="CheckAttendance" component={CheckAttendance} />
+      <Stack.Screen name="MyCourse" component={MyCourse} />
+      <Stack.Screen name="MyFees" component={MyFees} />
     </Stack.Navigator>
   );
 };

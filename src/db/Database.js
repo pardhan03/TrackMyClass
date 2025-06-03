@@ -316,3 +316,48 @@ export const getAttendanceByMonth = (
     );
   });
 };
+
+export const getCoursDetail = (courseId, callback, error) =>{
+  db.transaction(tx => {
+    tx.executeSql(
+      'SELECT * FROM courses WHERE id=? ',
+      [courseId],
+      (_, {rows}) => {
+        if(rows?.length > 0){
+          callback(rows.item(0))
+        }
+        else {
+          error("Course not found")
+        }
+      },
+      (_, err) => {
+        error(err);
+      },
+    )
+  })
+}
+
+export const getStudentSubjects = (courseId, callback, error) =>{
+  db.transaction(tx => {
+    tx.executeSql(
+      'SELECT * FROM subjects WHERE course_id=? ',
+      [courseId],
+      (_, {rows}) => {
+        if(rows?.length > 0){
+          let data = [];
+
+          for(let i=0; i < rows.length; i++){
+            data.push(rows.item(i))
+          }
+          callback(data)
+        }
+        else {
+          error("Course not found")
+        }
+      },
+      (_, err) => {
+        error(err);
+      },
+    )
+  })
+}
