@@ -7,7 +7,6 @@ import { horizontalScale, moderateScale, verticalScale } from '../../helpers/Met
 const MyCourse = () => {
   const [detail, setDetail] = useState(null);
   const [subjects, setSubjects] = useState([]);
-
   const route = useRoute();
 
   useEffect(()=>{
